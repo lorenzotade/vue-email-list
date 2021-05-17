@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="css/style.css">
+  <script src="https://cdn.jsdelivr.net/npm/vue@2.6.12/dist/vue.js"></script>
+  <title>vue-email-list</title>
+</head>
+<body>
+  
+  <!-- APP -->
+  <div id="app">
+
+    <h1>Email List:</h1>
+    <!-- mostro loading... mentre aspetto la fine di tutte e 10 le chiamate API -->
+    <h3 v-if="emailList.length < 10">Loading...</h3>
+
+    <!-- email list -->
+    <ul>
+      <!-- stampo tutte le email nell'array, ma solo quando sono state recuperate tutte (lunghezza dell'array = 10) -->
+      <li 
+        v-for="email in emailList"
+        v-if="emailList.length === 10"
+      >
+        {{ email }}
+      </li>
+    </ul> <!-- /email list -->
+    
+  </div>
+  <!-- /APP -->
+
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/axios/0.21.1/axios.min.js' integrity='sha512-bZS47S7sPOxkjU/4Bt0zrhEtWx0y0CRkhEp8IckzK+ltifIIE9EMIMTuT/mEzoIMewUINruDBIR/jJnbguonqQ==' crossorigin='anonymous'></script>
+  <script src="js/script.js"></script>
+</body>
+</html>
